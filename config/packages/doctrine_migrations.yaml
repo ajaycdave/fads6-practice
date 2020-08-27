@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FaCoreBundle/Resources/config/doctrine_migrations.yaml" }

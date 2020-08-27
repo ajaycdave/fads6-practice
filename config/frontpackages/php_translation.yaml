@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FafFrontendBundle/Resources/config/php_translation.yaml" }

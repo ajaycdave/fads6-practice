@@ -1,0 +1,202 @@
+# This file is auto-generated during the composer install
+parameters:
+    # SITE URL RELATED CONFIGURATION.
+    fa.static.asset.url: '%env(BASE_URL_SCHEME)%://%env(BASE_URL)%'
+    faf.service_name: FADS 6.0
+    faf.url.scheme: '%env(BASE_URL_SCHEME)%'
+    faf.url.schemes: '%env(ROUTE_SCHEMES)%'
+    faf.base_url: '%env(BASE_URL)%'
+    faf.api_base_url: '%env(API_URL)%'
+    faf.static.url: '//%env(BASE_URL)%/bundles'
+    faf.static.asset.url: '%env(BASE_URL_SCHEME)%://%env(BASE_URL)%'
+    faf.image_base_url: '%env(IMAGE_URL)%'
+    router.request_context.scheme: '%faf.url.scheme%'
+
+    # EMAIL RELATED CONFIGURATION
+    mailer_sender_email: '%env(SENDER_MAILER_EMAIL)%'
+    email_delivery_address: '%env(DELIVERY_EMAIL)%'
+    faf.error.email: '%env(ERROR_EMAIL)%'
+    faf.support.email: '%env(SUPPORT_EMAIL)%'
+    faf.admin.sender.email: '%env(SENDER_ADMIN_MAILER_EMAIL)%'
+
+    # CACHE RELATED CONFIGURATION
+    faf.cache.key: '%env(BASE_URL)%'
+    faf.admin.cache.key: '%env(REDIS_ADMIN_CACHE_KEY)%'
+
+    # SECURITY CONFIGURATION
+    reset_password_encryption_key: fads6
+    encryption_key: fads6
+
+    # LOCALE CONFIGURATION
+    default_locale: 'en_GB'
+    locale_enabled:
+        - en_GB
+        - fi
+        - de
+    rtl_locale: []
+
+    # SUPPORTED COUNTRY
+    country_code:
+        - us
+        - uk
+        - ir
+        - za
+        - de
+
+    # NAMESPACE
+    faf.namespace:
+        - appf
+        - faf
+
+    # AWS
+    faf.aws.mode: '%env(MODE)%'
+    faf.static.shared.url: '%env(AWS_STATIC_SHARED_URL)%'
+    faf.aws.local:
+        bucket: '%env(AWS_BUCKET_NAME)%'
+        region: '%env(AWS_BUCKET_REGION)%'
+        version: '%env(AWS_BUCKET_VERSION)%'
+        #debug: true
+        credentials:
+            key: '%env(AWS_BUCKET_KEY)%'
+            secret: '%env(AWS_BUCKET_SECRET)%'
+        bucket.prefix: '%env(AWS_BUCKET_PREFIX)%'
+    faf.aws.test:
+        bucket: '%env(AWS_BUCKET_NAME)%'
+        region: '%env(AWS_BUCKET_REGION)%'
+        version: '%env(AWS_BUCKET_VERSION)%'
+        #debug: true
+        credentials:
+            key: '%env(AWS_BUCKET_KEY)%'
+            secret: '%env(AWS_BUCKET_SECRET)%'
+        bucket.prefix: '%env(AWS_BUCKET_PREFIX)%'
+    faf.aws.live:
+        bucket: '%env(AWS_BUCKET_NAME)%'
+        region: '%env(AWS_BUCKET_REGION)%'
+        version: '%env(AWS_BUCKET_VERSION)%'
+        credentials:
+            key: '%env(AWS_BUCKET_KEY)%'
+            secret: '%env(AWS_BUCKET_SECRET)%'
+        bucket.prefix: '%env(AWS_BUCKET_PREFIX)%'
+
+
+    # IMAGE CONFIGURATION
+    faf.image.tmp.dir: uploads/tmp
+    #for multiple image gallery
+    faf.multi.image.routes:
+        image_save: ajax_image_save
+        get_images: ajax_get_images
+        delete_images: ajax_delete_images
+        get_big_image: ajax_get_big_image
+        crop_image: ajax_crop_image
+        change_image_order: ajax_change_image_order
+        make_main_image: ajax_make_main_image
+        upload_video: ajax_video_upload
+    faf.multi.image.extentions: 'jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF'
+    faf.multi.image.mime_types:
+        - 'image/jpg'
+        - 'image/gif'
+        - 'image/jpeg'
+        - 'image/png'
+    #for single image
+    faf.single.image.routes:
+        image_save: ajax_single_image_save
+        get_image: ajax_get_single_image
+        delete_image: ajax_delete_single_image
+        get_big_image: ajax_get_single_profile_big_image
+        crop_image: ajax_crop_single_profile_image
+    faf.single.image.extentions: 'jpg,jpeg,png,gif,ico,svg,JPG,JPEG,PNG,GIF,ICO,SVG'
+    faf.single.image.mime_types:
+        - 'image/jpg'
+        - 'image/jpeg'
+        - 'image/png'
+        - 'image/gif'
+        - 'image/ico'
+        - 'image/svg'
+        - 'image/JPG'
+        - 'image/JPEG'
+        - 'image/PNG'
+        - 'image/GIF'
+        - 'image/ICO'
+        - 'image/SVG'
+
+    # ADD THIS
+    faf.add_this.pubid: '%env(ADD_THIS_PUBID)%'
+
+    # GOOGLE
+    faf.googlemap.api.key: '%env(GOOGLEMAP_API_KEY)%'
+    faf.google:
+        app_id: '%env(GOOGLE_APP_ID)%'
+        app_secret: '%env(GOOGLE_APP_SECRET)%'
+    faf.google.recaptcha:                           #https://www.google.com/recaptcha/admin
+        site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'   #test.fads6@gmail.com / fads6
+        secret_key: '%env(GOOGLE_RECAPTCHA_SECRET_KEY)%'
+
+    # FACEBOOK
+    faf.facebook:
+        app_id: '%env(FACEBOOK_APP_ID)%'
+        app_secret: '%env(FACEBOOK_APP_SECRET)%'
+
+
+    # ROUTER
+    faf.listing.route:
+        location_enabled: true
+        itemtype_enabled: true
+    faf.item.detail.route:
+        location_enabled: true
+
+    # LOCATION
+    faf.default_location: ''
+    faf.default_location_slug: ''
+    faf.default_location_field: ''
+    faf.default_location_lat_long: '55.378051,-3.435973'
+    faf.know_your_location: true
+    faf.slider_show_item_based_on_location:  true
+
+    # JS DEBUG
+    faf.throw.js_error: false                            # https://app.bugsnag.com
+    faf.throw.js_error_key: '%env(THROW_JS_ERROR_KEY)%'  # test.fads6@gmail.com / aumaspl123
+
+
+    # DOCUMENTS
+    faf.multi.document.mime_types:
+        - 'application/pdf'
+        - 'text/plain'
+        - 'application/vnd.ms-office'
+        - 'application/msword'
+        - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        - 'application/excel'
+        - 'application/vnd.ms-excel'
+        - 'application/x-excel'
+        - 'application/x-msexcel'
+        - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        - 'application/vnd.ms-powerpoint'
+        - 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+        - 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
+        - 'application/zip'
+        - 'application/octet-stream'
+        - 'application/vnd.ms-outlook'
+    faf.multi.document.extentions: 'pdf,txt,doc,docx,xls,xlsx,ppt,pptx,pps,ppsx,msg,PDF,TXT,DOC,DOCX,XLS,XLSX,PPT,PPTX,PPS,PPSX,MSG'
+    faf.multi.document.routes:
+        document_save: ajax_document_save
+        get_documents: ajax_get_documents
+        delete_documents: ajax_delete_documents
+        change_document_order: ajax_change_document_order
+
+    # ITEM
+    faf.allow_renew_item_before_days: 3
+
+    # USER
+    faf.remember_me.enable: true
+    faf.remember_me.token_expiration_age: 31536000
+    faf.remember_me.cookie_name: 'fads6_user'
+
+    faf.max_record_per_page: 100
+
+    # GRAYLOG
+    faf.send_error_to_graylog.flag: '%env(SEND_LOG_TO_GRAYLOG)%'
+
+    #Custom theme
+    faf.custom_theme: true
+
+    # Site Id (multisite)
+    faf.site_id:  '%env(SITE_ID)%'

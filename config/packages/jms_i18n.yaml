@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FaCoreBundle/Resources/config/jms_i18n.yaml" }

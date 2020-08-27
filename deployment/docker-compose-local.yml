@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+    nginx:
+      image: nginx
+      container_name: nginx
+      build:
+        args:
+          VERSION: 1.17.1
+          ENVIRONMENT: local
+        context: ../
+        dockerfile: deployment/docker/nginx/Dockerfile
+      ports:
+        - 80:80
+      volumes:
+        - ${PWD}:/web/fads6/:rw
+      depends_on:
+        - php
+      networks:
+        - default
+      env_file:
+        - docker.env
+
+    php:
+      image: fads6_php
+      container_name: php
+      build:
+        args:
+          VERSION: 7.2.24
+          ENVIRONMENT: local
+          NEW_SETUP: 0
+        context: ../
+        dockerfile: deployment/docker/php/Dockerfile
+      volumes: 
+        -  ${PWD}:/web/fads6/:rw
+      networks:
+        - default
+      env_file:
+        - docker.env
+
+
+networks:
+  default:
+    external:
+        name: docker-network

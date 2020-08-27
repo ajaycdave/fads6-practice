@@ -1,0 +1,7 @@
+**/.git
+**/db-dump.sql
+**/.terraform/
+**/terraform.tfstate.backup
+infra/jenkins
+infra/graylog
+

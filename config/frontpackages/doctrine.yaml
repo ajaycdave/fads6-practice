@@ -1,0 +1,13 @@
+#imports:
+    #- { resource: "@FafFrontendBundle/Resources/config/doctrine.yaml" }
+#    - { resource: "../../vendor/fads/platform/src/Fa/Bundle/CoreBundle/Resources/config/doctrine.yaml" }
+
+#doctrine:
+#    orm:
+#        mappings:
+#            translatable:
+#                is_bundle: false
+#                type: annotation
+#                prefix: Gedmo\Translatable\Entity
+#                dir: "%kernel.root_dir%/../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity/MappedSuperclass"
+#                alias: Gedmo

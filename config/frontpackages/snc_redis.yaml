@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FafCoreBundle/Resources/config/snc_redis.yaml" }

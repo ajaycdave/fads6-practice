@@ -1,0 +1,62 @@
+#! /bin/sh
+
+chmod +x bin/console
+
+if [ "$NEW_SETUP" == 1 ]; then
+
+    php -d memory_limit=512M composer.phar install
+
+    php bin/console fa:copy:entity
+
+    php bin/console doctrine:schema:update --force
+
+    php -d memory_limit="512M" bin/console cache:clear
+    yarn install --cwd="vendor/fads/platform/" --modules-folder="/web/fads6/node_modules/"
+    php bin/console assets:install public --symlink
+    php -d memory_limit="512M" bin/console fa:assets:install
+    yarn run encore dev --config-name=platform
+
+    php -d memory_limit="512M" bin/front cache:clear
+    yarn install --cwd="vendor/fads/frontend/" --modules-folder="/web/fads6/node_modules/"
+    php bin/front assets:install front --symlink
+    php -d memory_limit="512M" bin/front fa:assets:install
+    yarn run encore dev --config-name=frontend
+
+    php bin/console fa:elasticsearch delete-index location_lookup
+    php bin/console fa:elasticsearch create-index location_lookup
+    php bin/console fa:elasticsearch:LocationLookup add
+    php bin/console fa:elasticsearch delete-index user
+    php bin/console fa:elasticsearch create-index user
+    php bin/console fa:elasticsearch:user add
+    php bin/console fa:elasticsearch delete-index item
+    php bin/console fa:elasticsearch create-index item
+    php bin/console fa:elasticsearch:item add
+    php bin/console fa:elasticsearch delete-index article
+    php bin/console fa:elasticsearch create-index article
+    php bin/console fa:elasticsearch:article add
+
+    #php -d memory_limit="512M" bin/console fa:generate:category-slug-path --memory_limit=512M
+    #php bin/console fa:item:update-item-url
+
+    chown $USER:$GROUP ./ -Rf
+    chmod -R 777 public/uploads front/uploads var
+else
+    php -d memory_limit="512M" bin/console cache:clear
+    php -d memory_limit="512M" bin/front cache:clear
+fi
+
+touch ../../.yarnrc
+chmod 777 ../../.yarnrc
+mkdir ../../.composer
+chmod 777 ../../.composer
+
+# API host entry in container
+API_HOST=$(cat .env | grep -h 'API_BASE_URL' | sed -e 's|API_BASE_URL=http.*:\/\/\(.*\)|\1|g')
+cp /etc/hosts /etc/hosts_tmp && sed -i "/$API_HOST/d" /etc/hosts_tmp && echo "$(/sbin/ip route|awk '/default/ { print $3 }') $API_HOST" >> /etc/hosts_tmp && cat /etc/hosts_tmp > /etc/hosts
+
+# front host entry in container
+FRONT_HOST=$(cat .frontenv | grep -E '\bBASE_URL\b' | awk -F '=' '{print $2}')
+cp /etc/hosts /etc/hosts_tmp && sed -i "/$FRONT_HOST/d" /etc/hosts_tmp && echo "$(/sbin/ip route|awk '/default/ { print $3 }') $FRONT_HOST" >> /etc/hosts_tmp && cat /etc/hosts_tmp > /etc/hosts
+
+/usr/local/sbin/php-fpm -F
+EXIT_STATUS=$?

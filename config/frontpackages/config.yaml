@@ -1,0 +1,17 @@
+liip_theme:
+    themes: ['theme1']
+    active_theme: 'theme1'
+    load_controllers: false
+    path_patterns:
+        app_resource:
+            - '%%app_path%%/themes/%%current_theme%%/%%template%%'
+            - '%%app_path%%/themes/fallback_theme/%%template%%'
+            - '%%app_path%%/views/%%template%%'
+        bundle_resource:
+            - '%%bundle_path%%/Resources/themes/%%current_theme%%_%%current_device%%/%%template%%'
+            - '%%bundle_path%%/Resources/themes/%%current_theme%%/%%template%%'
+            - '%%bundle_path%%/Resources/themes/fallback_theme/%%template%%'
+        bundle_resource_dir:
+            - '%%dir%%/%%bundle_name%%/themes/%%current_theme%%/%%template%%'
+            - '%%dir%%/%%bundle_name%%/themes/fallback_theme/%%template%%'
+            - '%%dir%%/%%bundle_name%%/%%override_path%%'

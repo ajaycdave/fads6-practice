@@ -1,0 +1,103 @@
+# This file is a "template" of which env vars need to be defined for your application
+# Copy this file to .env file for development, create environment variables when deploying to production
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+
+###> symfony/framework-bundle ###
+APP_ENV={{app_env_value}}
+APP_DEBUG={{app_debug_value}}
+APP_SECRET=c0b81150f31fa6015d2d28520ff4c6d2
+###< symfony/framework-bundle ###
+
+###> doctrine/doctrine-bundle ###
+# Format described at http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url
+# For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db"
+# Configure your db driver and server_version in config/packages/doctrine.yaml
+DATABASE_URL={{database_url_value}}
+DATABASE_HISTORY_URL={{database_history_url_value}}
+###< doctrine/doctrine-bundle ###
+
+###> symfony/swiftmailer-bundle ###
+# For Gmail as a transport, use: "gmail://username:password@localhost"
+# For a generic SMTP server, use: "smtp://localhost:25?encryption=&auth_mode="
+# Delivery is disabled by default via "null://localhost"
+MAILER_URL={{mailer_url_value}}
+###< symfony/swiftmailer-bundle ###
+
+###> snc/redis-bundle ###
+# passwords that contain special characters (@, %, :, +) must be urlencoded
+REDIS_HOST={{redis_host_value}}
+REDIS_ADMIN_CACHE_KEY={{redis_admin_cache_key_value}}
+###< snc/redis-bundle ###
+
+###> knplabs/knp-snappy-bundle ###
+WKHTMLTOPDF_PATH=/usr/local/bin/wkhtmltopdf
+WKHTMLTOIMAGE_PATH=/usr/local/bin/wkhtmltoimage
+###< knplabs/knp-snappy-bundle ###
+
+###> URLs ###
+BASE_URL={{base_url_value}}
+BASE_URL_SCHEME={{base_url_scheme_value}}
+API_URL={{api_url_value}}
+IMAGE_URL={{image_url_value}} # Only needed if images to serve from locale
+ADMIN_URL={{admin_url_value}}
+ADMIN_URL_SCHEME={{admin_url_scheme_value}}
+ROUTE_SCHEMES={{route_schemes_value}}
+###> URLs ###
+
+###> EMAIL CONFIGURATION ###
+SENDER_MAILER_EMAIL={{sender_mailer_email_value}}
+DELIVERY_EMAIL={{delivery_email_value}}
+ERROR_EMAIL={{error_email_value}}
+SUPPORT_EMAIL={{support_email_value}}
+SENDER_ADMIN_MAILER_EMAIL={{sender_admin_mailer_email_value}}
+###> EMAIL CONFIGURATION ###
+
+
+###> GOOGLE ###
+GOOGLEMAP_API_KEY={{googlemap_api_key_value}}
+
+GOOGLE_APP_ID={{google_client_id_value}}
+GOOGLE_APP_SECRET={{google_client_secret_value}}
+
+GOOGLE_RECAPTCHA_SITE_KEY={{google_recaptcha_site_key_value}}
+GOOGLE_RECAPTCHA_SECRET_KEY={{google_recaptcha_secret_key_value}}
+###< GOOGLE ###
+
+###> FACEBOOK ###
+FACEBOOK_APP_ID={{facebook_app_id_value}}
+FACEBOOK_APP_SECRET={{facebook_app_secret_value}}
+###< FACEBOOK ###
+
+###> ADD THIS ###
+ADD_THIS_PUBID={{add_this_pubid_value}}
+###< ADD THIS ###
+
+###> AWS ###
+AWS_STATIC_SHARED_URL={{aws_static_shared_url_value}}
+AWS_BUCKET_NAME={{aws_bucket_name_value}}
+AWS_BUCKET_PREFIX={{aws_bucket_prefix_value}}
+AWS_BUCKET_REGION={{aws_bucket_region_value}}
+AWS_BUCKET_VERSION={{aws_bucket_version_value}}
+AWS_BUCKET_KEY={{aws_bucket_key_value}}
+AWS_BUCKET_SECRET={{aws_bucket_secret_value}}
+###< AWS ###
+
+###> Mode ###
+MODE=local
+###< Mode ###
+
+###> JS DEBUG ###
+THROW_JS_ERROR_KEY=a8239e1877274c2fb34e56d2e83b6fe3
+###> JS DEBUG ###
+
+###> For var dumper change last two digit as your ip ###
+VAR_DUMPER_SERVER={{var_dumper_server_value}}
+###> For var dumper change last two digit as your ip ###
+
+### SEND LOG TO GRAYLOG ####
+SEND_LOG_TO_GRAYLOG={{send_log_to_graylog_value}}
+###< SEND LOG TO GRAYLOG ###
+
+### Set site id for multisite ####
+SITE_ID=
+###< Set site id for multisite ###

@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FaCoreBundle/Resources/config/google_apiclient.yaml" }

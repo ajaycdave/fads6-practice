@@ -1,0 +1,41 @@
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+
+fa_admin_homepage:
+    path:     /
+    host: '%fa.main.host%'
+    defaults: { _controller: "FaAdminBundle:Default:index" }
+    schemes:  ['%fa.url.schemes%']
+    options: { i18n: false }
+
+fa_admin:
+    resource: "@FaAdminBundle/Resources/config/routing.yaml"
+    host: '%fa.main.host%'
+    prefix:   /
+    schemes:  ['%fa.url.schemes%']
+    options: { i18n: false }
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    host: '%fa.main.host%'
+    schemes:  ['%fa.url.schemes%']
+    
+_translation_webui:
+    resource: "@FaTranslationBundle/Resources/config/routing_webui.yaml"
+    prefix:  /
+
+fa_core_api:
+    resource: "@FaCoreBundle/Resources/config/routing_api.yaml"
+    prefix:   /
+
+fa_core_api_frontend:
+    resource: "@FaCoreBundle/Resources/config/routing_api_frontend.yaml"
+    prefix:   /
+    schemes:  ['%fa.url.schemes%']
+
+fa_widget_admin:
+    host: '%fa.widget.host%'
+    resource: "@FaWidgetBundle/Resources/config/routing_admin.yaml"
+    prefix:   /

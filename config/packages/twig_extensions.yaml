@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FaCoreBundle/Resources/config/twig_extensions.yaml" }

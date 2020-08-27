@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@FaCoreBundle/Resources/config/fos_rest.yaml" }

@@ -1,0 +1,14 @@
+fa_main:
+    resource: "@FafFrontendBundle/Resources/config/routing.yaml"
+    host: '%faf.base_url%'
+    schemes:  ['%faf.url.schemes%']
+    options: { i18n: false }
+
+final_route:
+    path: /{page_string}/
+    host: '%faf.base_url%'
+    defaults: { _controller: FafItemBundle:List:list }
+    schemes:  ['%faf.url.schemes%']
+    options: { i18n: false }
+    requirements:
+        page_string: ".+"

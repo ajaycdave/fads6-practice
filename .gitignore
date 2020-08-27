@@ -1,0 +1,38 @@
+
+###> symfony/framework-bundle ###
+config/packages/parameters.yaml
+config/packages/api_doc.yaml
+#config/jwt/
+.env
+.frontenv
+/public/bundles/
+/public/uploads/
+/var/
+/vendor/
+#composer.phar
+.project
+.buildpath
+.settings
+composer.lock
+#package.json
+symfony.lock
+yarn.lock
+###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+/front/build
+/front/bundles
+###< symfony/webpack-encore-pack ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+src/App/Entity
+
+infra
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

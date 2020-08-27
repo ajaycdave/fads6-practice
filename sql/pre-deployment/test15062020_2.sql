@@ -1,0 +1,1 @@
+UPDATE user SET is_email_consent=1 WHERE id=1 LIMIT 1;
